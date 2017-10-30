@@ -46,7 +46,7 @@ class Mkl < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmkl_rt", "-liomp5", "-o", "test"
+    system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-L#{lib}", "-lmkl_rt", "-liomp5", "-Wl,-rpath,#{lib}"
     system "./test"
   end
 end
